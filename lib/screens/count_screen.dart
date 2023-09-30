@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_one/provider/count_provider.dart';
 import 'package:provider_one/screens/example_first.dart';
+import 'package:provider_one/screens/favourite_screen.dart';
 
 class CountScreen extends StatefulWidget {
   const CountScreen({super.key});
@@ -47,6 +48,14 @@ class _CountScreenState extends State<CountScreen> {
                   }));
                 },
                 child: Text('Example_First')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return FavouriteScreen();
+                  }));
+                },
+                child: Text('Favourite_Screen')),
+                
             Center(
               child: Consumer<CountProvider>(
                 builder: (context, value, child) {

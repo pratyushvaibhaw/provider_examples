@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_one/provider/count_provider.dart';
 import 'package:provider_one/provider/example_first_provider.dart';
+import 'package:provider_one/provider/favourite_provider.dart';
 import 'package:provider_one/screens/count_screen.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => CountProvider(),
         ),
-        ChangeNotifierProvider(create: (context) => ExampleFirstProvider())
+        ChangeNotifierProvider(create: (context) => ExampleFirstProvider()),
+        ChangeNotifierProvider(create: (context) => FavouriteProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
