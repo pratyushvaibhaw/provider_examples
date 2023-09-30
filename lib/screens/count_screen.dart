@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_one/provider/count_provider.dart';
+import 'package:provider_one/screens/example_first.dart';
 
 class CountScreen extends StatefulWidget {
   const CountScreen({super.key});
@@ -12,13 +13,13 @@ class CountScreen extends StatefulWidget {
 }
 
 class _CountScreenState extends State<CountScreen> {
-  void initState() {
-    super.initState();
-    final countProvider = Provider.of<CountProvider>(context, listen: false);
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      countProvider.setCount();
-    });
-  }
+  // void initState() {
+  //  super.initState();
+  //   final countProvider = Provider.of<CountProvider>(context, listen: false);
+  //   Timer.periodic(Duration(seconds: 1), (timer) {
+  //     countProvider.setCount();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -36,16 +37,28 @@ class _CountScreenState extends State<CountScreen> {
           centerTitle: true,
           title: Text('C o u n t    S c r e e n'),
         ),
-        body: Center(
-          child: Consumer<CountProvider>(
-            builder: (context, value, child) {
-              debugPrint('only this widget gets rebuild');
-              return Text(
-                value.count.toString(),
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-              );
-            },
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ExampleFirst();
+                  }));
+                },
+                child: Text('Example_First')),
+            Center(
+              child: Consumer<CountProvider>(
+                builder: (context, value, child) {
+                  debugPrint('only this widget gets rebuild');
+                  return Text(
+                    value.count.toString(),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  );
+                },
+              ),
+            ),
+          ],
         ));
   }
 }
