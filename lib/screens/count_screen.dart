@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_one/provider/count_provider.dart';
+import 'package:provider_one/screens/dark_theme.dart';
 import 'package:provider_one/screens/example_first.dart';
 import 'package:provider_one/screens/favourite_screen.dart';
 
@@ -55,7 +56,13 @@ class _CountScreenState extends State<CountScreen> {
                   }));
                 },
                 child: Text('Favourite_Screen')),
-                
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DarkThemeScreen();
+                  }));
+                },
+                child: Text('Dark_Theme_Screen')),
             Center(
               child: Consumer<CountProvider>(
                 builder: (context, value, child) {
