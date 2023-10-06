@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeChanger.themeMode,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
+                splashColor: Colors.transparent,//to nullify the unnecessary splash of inkwell and other buttons
                 appBarTheme: AppBarTheme(
                     titleTextStyle: TextStyle(
                         color: Colors.white,

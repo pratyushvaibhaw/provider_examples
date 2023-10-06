@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +5,7 @@ import 'package:provider_one/provider/count_provider.dart';
 import 'package:provider_one/screens/dark_theme.dart';
 import 'package:provider_one/screens/example_first.dart';
 import 'package:provider_one/screens/favourite_screen.dart';
+import 'package:provider_one/screens/notify_listener_screen.dart';
 
 class CountScreen extends StatefulWidget {
   const CountScreen({super.key});
@@ -63,6 +63,13 @@ class _CountScreenState extends State<CountScreen> {
                   }));
                 },
                 child: Text('Dark_Theme_Screen')),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return NotifyListenerScreen();
+                  }));
+                },
+                child: Text('Notify_Listener_Screen')),
             Center(
               child: Consumer<CountProvider>(
                 builder: (context, value, child) {
